@@ -9,11 +9,17 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e3f2fd;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .logo {
             margin-top: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
         .logo img {
             width: 200px;
@@ -27,6 +33,10 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
             text-align: center;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
         }
         h2 {
             color: #007bff;
@@ -46,10 +56,11 @@
             border-radius: 8px;
             font-size: 18px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
         .button:hover {
             background: #218838;
+            transform: scale(1.1);
         }
         .contact {
             margin-top: 30px;
@@ -70,6 +81,28 @@
             padding: 8px 0;
             color: #555;
         }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        .hours {
+            font-size: 18px;
+            color: #444;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -82,6 +115,7 @@
         <p>Tu farmacia de confianza en La Huerta, Jalisco.</p>
         <a href="#productos" class="button">Ver Productos</a>
         <a href="#contacto" class="button">Contáctanos</a>
+        <p class="hours">⏰ Horario: Lunes a Sábado, 9:00 AM - 3:00 PM / 5:00 PM - 9:00 PM<br>Domingo, 9:30 AM - 3:00 PM</p>
     </div>
 
     <div class="container" id="productos">
@@ -101,5 +135,7 @@
         <p>📲 <a href="https://wa.me/523151094530" class="button">WhatsApp</a></p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.291574264332!2d-104.649216!3d19.4844825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8424d3e2f6e7a2e7%3A0x5f5e6b3df4b6a0!2sCalle%20Primero%20de%20Enero%2C%20La%20Huerta%2C%20Jalisco!5e0!3m2!1ses!2smx!4v1710000000000" allowfullscreen=""></iframe>
     </div>
+
+    <a href="https://wa.me/523151094530" class="whatsapp-float">📲</a>
 </body>
 </html>
