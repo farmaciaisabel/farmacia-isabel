@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Farmacia Isabel - Tu farmacia de confianza en La Huerta, Jalisco">
     <title>Farmacia Isabel - La Huerta, Jalisco</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -14,23 +14,27 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            background: linear-gradient(135deg, #f5f7fa, #e6e9f0);
             transition: all 0.3s ease;
+            color: #333;
         }
 
         header {
             padding: 20px;
             text-align: center;
-            background: #007bff;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
             color: white;
+            border-bottom: 4px solid #ffb6b6;
         }
 
         .logo img {
             max-width: 200px;
             height: auto;
             transition: transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo img:hover {
@@ -40,64 +44,84 @@
         nav {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid #4ecdc4;
         }
 
         nav .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         nav a {
             text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            transition: color 0.3s;
+            color: #4ecdc4;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.2s;
+            font-size: 1.1rem;
         }
 
         nav a:hover {
-            color: #0056b3;
+            color: #ff6b6b;
+            transform: translateY(-2px);
         }
 
         .search-cart {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             align-items: center;
         }
 
         .search-bar {
-            padding: 8px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            width: 200px;
+            padding: 10px;
+            border: 2px solid #4ecdc4;
+            border-radius: 20px;
+            width: 220px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
         }
 
         .cart-icon {
-            font-size: 24px;
-            color: #007bff;
+            font-size: 28px;
+            color: #ff6b6b;
             cursor: pointer;
             position: relative;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .cart-icon:hover {
+            color: #4ecdc4;
+            transform: scale(1.1);
         }
 
         .cart-count {
             position: absolute;
             top: -5px;
             right: -5px;
-            background: red;
+            background: #ff6b6b;
             color: white;
             border-radius: 50%;
-            width: 15px;
-            height: 15px;
+            width: 18px;
+            height: 18px;
             font-size: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: bold;
         }
 
         .department-menu {
@@ -105,12 +129,22 @@
         }
 
         .department-menu select {
-            padding: 10px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            font-size: 16px;
+            padding: 12px;
+            border: 2px solid #4ecdc4;
+            border-radius: 20px;
+            font-size: 1rem;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
+            background: #fff;
+            font-family: 'Quicksand', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .department-menu select:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
         }
 
         .container {
@@ -119,59 +153,124 @@
             padding: 30px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #e6e9f0;
         }
 
         .container:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
 
         h2 {
-            color: #007bff;
+            color: #4ecdc4;
             margin-bottom: 20px;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .button {
             display: inline-block;
             padding: 12px 25px;
-            background: #28a745;
+            background: #ff6b6b;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 20px;
             transition: all 0.3s;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
         }
 
         .button:hover {
-            background: #218838;
+            background: #e64c4c;
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(230, 76, 76, 0.3);
+            border-color: #e64c4c;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
         }
 
         .product-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            background: #f9f9fb;
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            border: 2px solid #e6e9f0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .product-card:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: #4ecdc4;
         }
 
         .hours {
             background: #f1f8ff;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 15px;
             margin: 20px 0;
+            border: 2px solid #e6e9f0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .checkout-section {
+            margin: 20px 0;
+        }
+
+        .payment-form {
+            display: none;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 25px;
+            background: #f9f9fb;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e6e9f0;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
+        .payment-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4ecdc4;
+            font-weight: 600;
+        }
+
+        .payment-form input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e6e9f0;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .payment-form input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
+        }
+
+        #payment-result {
+            margin-top: 15px;
+            color: #333;
+            font-weight: 600;
         }
 
         .theme-toggle {
@@ -179,12 +278,20 @@
             top: 20px;
             right: 20px;
             padding: 10px 15px;
-            background: #007bff;
+            background: #ff6b6b;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 20px;
             cursor: pointer;
             z-index: 1001;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
+        }
+
+        .theme-toggle:hover {
+            background: #e64c4c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(230, 76, 76, 0.3);
         }
 
         .dark-mode {
@@ -194,22 +301,36 @@
 
         .dark-mode .container {
             background: #2d2d2d;
+            border-color: #3d3d3d;
         }
 
         .dark-mode .hours {
             background: #3d3d3d;
+            border-color: #3d3d3d;
+        }
+
+        .dark-mode .product-card {
+            background: #3d3d3d;
+            border-color: #3d3d3d;
+        }
+
+        .dark-mode .payment-form {
+            background: #3d3d3d;
+            border-color: #3d3d3d;
         }
 
         footer {
             padding: 20px;
             text-align: center;
             color: #666;
+            background: #f5f7fa;
+            border-top: 2px solid #e6e9f0;
         }
 
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
 
             nav .nav-links, .search-cart {
@@ -219,6 +340,15 @@
 
             .search-bar {
                 width: 100%;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 20px;
             }
         }
     </style>
@@ -249,13 +379,13 @@
     <main>
         <section id="inicio" class="container">
             <h2>Bienvenidos a Farmacia Isabel</h2>
-            <p>Tu farmacia de confianza en La Huerta, Jalisco</p>
+            <p>Tu farmacia de confianza en La Huerta, Jalisco, con un toque cálido y comunitario.</p>
             <div class="hours">
                 <p>⏰ Horario:<br>
                 Lunes a Sábado: 9:00 AM - 3:00 PM / 5:00 PM - 9:00 PM<br>
                 Domingo: 9:30 AM - 3:00 PM</p>
             </div>
-            <a href="#productos" class="button">Ver Productos</a>
+            <a href="#productos" class="button">Explora Nuestros Productos</a>
             <a href="#contacto" class="button">Contáctanos</a>
         </section>
 
@@ -267,7 +397,7 @@
                     <option value="salud">Salud</option>
                     <option value="bebes">Bebés</option>
                     <option value="vitaminas">Vitaminas y Suplementos</option>
-                    <option value="departamentos">Departamentos</option>
+                    <option value="departamentos">Cuidado Personal</option>
                 </select>
             </div>
             <div class="products-grid">
@@ -290,9 +420,30 @@
             </div>
         </section>
 
+        <section id="checkout" class="container checkout-section">
+            <h2>Finalizar Compra</h2>
+            <button class="button" onclick="showPaymentForm()">Proceder al Pago</button>
+            <div id="payment-form" class="payment-form">
+                <h3>Información de Pago</h3>
+                <form id="paymentForm">
+                    <label for="card-number">Número de Tarjeta:</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required><br><br>
+                    
+                    <label for="expiry-date">Fecha de Expiración (MM/AA):</label>
+                    <input type="text" id="expiry-date" placeholder="MM/AA" required><br><br>
+                    
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" placeholder="123" required><br><br>
+                    
+                    <button type="submit" class="button" onclick="processPayment(event)">Pagar Ahora</button>
+                </form>
+                <p id="payment-result"></p>
+            </div>
+        </section>
+
         <section id="ayuda" class="container">
             <h2>¿Necesitas Ayuda?</h2>
-            <p>Contáctanos para consultas sobre medicamentos y disponibilidad</p>
+            <p>Estamos aquí para ayudarte con cualquier consulta sobre medicamentos y disponibilidad.</p>
             <a href="https://wa.me/523151094530" class="button" target="_blank">Chatear en WhatsApp</a>
         </section>
 
@@ -302,7 +453,7 @@
             <p>📞 <a href="tel:+523151094530">315 109 4530</a></p>
             <a href="https://wa.me/523151094530" class="button" target="_blank">WhatsApp</a>
             <iframe src="https://www.google.com/maps?q=Calle+Primero+de+Enero,+19,+La+Huerta,+Jalisco&output=embed" 
-                    width="100%" height="300" style="border:0; border-radius:10px; margin-top:20px;" 
+                    width="100%" height="300" style="border:0; border-radius:15px; margin-top:20px;" 
                     allowfullscreen="" loading="lazy" title="Ubicación de Farmacia Isabel"></iframe>
         </section>
     </main>
@@ -311,14 +462,17 @@
         <p>© 2025 Farmacia Isabel. Todos los derechos reservados.</p>
     </footer>
 
-    <div id="cart-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1002;">
+    <div id="cart-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1002; border: 2px solid #e6e9f0;">
         <h3>Carrito de Compras</h3>
-        <ul id="cart-items"></ul>
-        <button onclick="closeCart()" style="margin-top: 10px; padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 5px;">Cerrar</button>
+        <ul id="cart-items" style="list-style: none; margin: 15px 0;"></ul>
+        <button onclick="closeCart()" style="padding: 10px 20px; background: #ff6b6b; color: white; border: none; border-radius: 20px; cursor: pointer; transition: all 0.3s; font-weight: 600;">Cerrar</button>
+        <a href="#checkout" class="button" style="margin-top: 15px; display: block; text-align: center;">Finalizar Compra</a>
     </div>
 
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
         let cart = [];
+        const stripe = Stripe('your-publishable-key-here'); // Replace with your actual Stripe Publishable Key
 
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
@@ -356,6 +510,11 @@
             cart.forEach(item => {
                 const li = document.createElement('li');
                 li.textContent = item;
+                li.style.marginBottom = '10px';
+                li.style.padding = '10px';
+                li.style.background = '#f9f9fb';
+                li.style.borderRadius = '10px';
+                li.style.border = '1px solid #e6e9f0';
                 cartItems.appendChild(li);
             });
         }
@@ -376,6 +535,43 @@
                     product.style.display = 'none';
                 }
             });
+        }
+
+        function showPaymentForm() {
+            const paymentForm = document.getElementById('payment-form');
+            paymentForm.classList.add('active');
+        }
+
+        async function processPayment(event) {
+            event.preventDefault();
+
+            const cardNumber = document.getElementById('card-number').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+
+            try {
+                const paymentResult = await stripe.createPaymentMethod({
+                    type: 'card',
+                    card: {
+                        number: cardNumber,
+                        exp_month: expiryDate.split('/')[0],
+                        exp_year: expiryDate.split('/')[1],
+                        cvc: cvv
+                    }
+                });
+
+                if (paymentResult.error) {
+                    document.getElementById('payment-result').textContent = 'Error en el pago: ' + paymentResult.error.message;
+                } else {
+                    document.getElementById('payment-result').textContent = '¡Pago exitoso! Gracias por su compra.';
+                    cart = [];
+                    updateCartCount();
+                    updateCartDisplay();
+                    document.getElementById('payment-form').classList.remove('active');
+                }
+            } catch (error) {
+                document.getElementById('payment-result').textContent = 'Error en el procesamiento del pago: ' + error.message;
+            }
         }
     </script>
 </body>
