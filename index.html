@@ -54,7 +54,7 @@
             border-bottom: 2px solid #4ecdc4;
         }
 
-        nav .nav-links {
+        .nav-links {
             display: flex;
             gap: 20px;
         }
@@ -70,6 +70,20 @@
         nav a:hover {
             color: #ff6b6b;
             transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none; /* Hidden on desktop */
+            font-size: 24px;
+            color: #ff6b6b;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .hamburger:hover {
+            color: #4ecdc4;
+            transform: scale(1.1);
         }
 
         .search-cart {
@@ -122,6 +136,38 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: left 0.3s ease;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .side-menu a {
+            color: #4ecdc4;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .side-menu a:hover {
+            color: #ff6b6b;
         }
 
         .department-menu {
@@ -328,27 +374,24 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
+            .hamburger {
+                display: block;
             }
 
-            nav .nav-links, .search-cart {
-                width: 100%;
-                justify-content: center;
+            .nav-links {
+                display: none;
             }
 
-            .search-bar {
-                width: 100%;
+            nav .search-cart {
+                width: auto;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
+            .side-menu {
+                display: flex;
             }
 
-            .container {
-                margin: 10px;
-                padding: 20px;
+            .side-menu.active {
+                left: 0;
             }
         }
     </style>
@@ -363,6 +406,7 @@
     </header>
 
     <nav>
+        <div class="hamburger" onclick="toggleSideMenu()">☰</div>
         <div class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#productos">Productos</a>
@@ -375,6 +419,14 @@
             <span class="cart-icon" onclick="toggleCart()">🛒<span class="cart-count">0</span></span>
         </div>
     </nav>
+
+    <div class="side-menu" id="side-menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#destacados">Destacados</a>
+        <a href="#ayuda">Ayuda</a>
+        <a href="#contacto">Contacto</a>
+    </div>
 
     <main>
         <section id="inicio" class="container">
@@ -412,167 +464,4 @@
             <h2>Productos Destacados</h2>
             <div class="products-grid">
                 <div class="product-card" data-category="salud">
-                    <p>💊 Medicamento A<br><strong>$100</strong></p>
-                </div>
-                <div class="product-card" data-category="departamentos">
-                    <p>🧴 Crema Corporal<br><strong>$80</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="checkout" class="container checkout-section">
-            <h2>Finalizar Compra</h2>
-            <button class="button" onclick="showPaymentForm()">Proceder al Pago</button>
-            <div id="payment-form" class="payment-form">
-                <h3>Información de Pago</h3>
-                <form id="paymentForm">
-                    <label for="card-number">Número de Tarjeta:</label>
-                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required><br><br>
-                    
-                    <label for="expiry-date">Fecha de Expiración (MM/AA):</label>
-                    <input type="text" id="expiry-date" placeholder="MM/AA" required><br><br>
-                    
-                    <label for="cvv">CVV:</label>
-                    <input type="text" id="cvv" placeholder="123" required><br><br>
-                    
-                    <button type="submit" class="button" onclick="processPayment(event)">Pagar Ahora</button>
-                </form>
-                <p id="payment-result"></p>
-            </div>
-        </section>
-
-        <section id="ayuda" class="container">
-            <h2>¿Necesitas Ayuda?</h2>
-            <p>Estamos aquí para ayudarte con cualquier consulta sobre medicamentos y disponibilidad.</p>
-            <a href="https://wa.me/523151094530" class="button" target="_blank">Chatear en WhatsApp</a>
-        </section>
-
-        <section id="contacto" class="container">
-            <h2>Contacto</h2>
-            <p>📍 Calle Primero de Enero, #19, La Huerta, Jalisco</p>
-            <p>📞 <a href="tel:+523151094530">315 109 4530</a></p>
-            <a href="https://wa.me/523151094530" class="button" target="_blank">WhatsApp</a>
-            <iframe src="https://www.google.com/maps?q=Calle+Primero+de+Enero,+19,+La+Huerta,+Jalisco&output=embed" 
-                    width="100%" height="300" style="border:0; border-radius:15px; margin-top:20px;" 
-                    allowfullscreen="" loading="lazy" title="Ubicación de Farmacia Isabel"></iframe>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Farmacia Isabel. Todos los derechos reservados.</p>
-    </footer>
-
-    <div id="cart-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1002; border: 2px solid #e6e9f0;">
-        <h3>Carrito de Compras</h3>
-        <ul id="cart-items" style="list-style: none; margin: 15px 0;"></ul>
-        <button onclick="closeCart()" style="padding: 10px 20px; background: #ff6b6b; color: white; border: none; border-radius: 20px; cursor: pointer; transition: all 0.3s; font-weight: 600;">Cerrar</button>
-        <a href="#checkout" class="button" style="margin-top: 15px; display: block; text-align: center;">Finalizar Compra</a>
-    </div>
-
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        let cart = [];
-        const stripe = Stripe('your-publishable-key-here'); // Replace with your actual Stripe Publishable Key
-
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-        }
-
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
-
-        function toggleCart() {
-            const modal = document.getElementById('cart-modal');
-            modal.style.display = modal.style.display === 'none' ? 'block' : 'none';
-            updateCartDisplay();
-        }
-
-        function closeCart() {
-            document.getElementById('cart-modal').style.display = 'none';
-        }
-
-        function addToCart(product) {
-            cart.push(product);
-            updateCartCount();
-            updateCartDisplay();
-        }
-
-        function updateCartCount() {
-            const count = document.querySelector('.cart-count');
-            count.textContent = cart.length;
-        }
-
-        function updateCartDisplay() {
-            const cartItems = document.getElementById('cart-items');
-            cartItems.innerHTML = '';
-            cart.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item;
-                li.style.marginBottom = '10px';
-                li.style.padding = '10px';
-                li.style.background = '#f9f9fb';
-                li.style.borderRadius = '10px';
-                li.style.border = '1px solid #e6e9f0';
-                cartItems.appendChild(li);
-            });
-        }
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const product = card.textContent.trim();
-                addToCart(product);
-            });
-        });
-
-        function filterProducts(category) {
-            const products = document.querySelectorAll('.product-card');
-            products.forEach(product => {
-                if (category === '' || product.getAttribute('data-category') === category) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            });
-        }
-
-        function showPaymentForm() {
-            const paymentForm = document.getElementById('payment-form');
-            paymentForm.classList.add('active');
-        }
-
-        async function processPayment(event) {
-            event.preventDefault();
-
-            const cardNumber = document.getElementById('card-number').value;
-            const expiryDate = document.getElementById('expiry-date').value;
-            const cvv = document.getElementById('cvv').value;
-
-            try {
-                const paymentResult = await stripe.createPaymentMethod({
-                    type: 'card',
-                    card: {
-                        number: cardNumber,
-                        exp_month: expiryDate.split('/')[0],
-                        exp_year: expiryDate.split('/')[1],
-                        cvc: cvv
-                    }
-                });
-
-                if (paymentResult.error) {
-                    document.getElementById('payment-result').textContent = 'Error en el pago: ' + paymentResult.error.message;
-                } else {
-                    document.getElementById('payment-result').textContent = '¡Pago exitoso! Gracias por su compra.';
-                    cart = [];
-                    updateCartCount();
-                    updateCartDisplay();
-                    document.getElementById('payment-form').classList.remove('active');
-                }
-            } catch (error) {
-                document.getElementById('payment-result').textContent = 'Error en el procesamiento del pago: ' + error.message;
-            }
-        }
-    </script>
-</body>
-</html>
+                    <p>💊 Medicamento A<br><
