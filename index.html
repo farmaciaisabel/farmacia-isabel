@@ -23,6 +23,8 @@
         header {
             padding: 20px;
             text-align: center;
+            background: #007bff;
+            color: white;
         }
 
         .logo img {
@@ -42,10 +44,17 @@
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
         }
 
         nav a {
-            margin: 0 15px;
             text-decoration: none;
             color: #007bff;
             font-weight: bold;
@@ -54,6 +63,54 @@
 
         nav a:hover {
             color: #0056b3;
+        }
+
+        .search-cart {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-bar {
+            padding: 8px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+            color: #007bff;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .department-menu {
+            margin: 20px 0;
+        }
+
+        .department-menu select {
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
         }
 
         .container {
@@ -103,6 +160,7 @@
             padding: 15px;
             border-radius: 10px;
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .product-card:hover {
@@ -149,19 +207,18 @@
         }
 
         @media (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 10px 0;
+            nav {
+                flex-direction: column;
+                gap: 10px;
             }
-            
-            .container {
-                margin: 10px;
-                padding: 20px;
+
+            nav .nav-links, .search-cart {
+                width: 100%;
+                justify-content: center;
             }
-            
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
+
+            .search-bar {
+                width: 100%;
             }
         }
     </style>
@@ -176,11 +233,17 @@
     </header>
 
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#productos">Productos</a>
-        <a href="#destacados">Destacados</a>
-        <a href="#ayuda">Ayuda</a>
-        <a href="#contacto">Contacto</a>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#destacados">Destacados</a>
+            <a href="#ayuda">Ayuda</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <div class="search-cart">
+            <input type="text" class="search-bar" placeholder="Buscar productos..." aria-label="Buscar productos">
+            <span class="cart-icon" onclick="toggleCart()">🛒<span class="cart-count">0</span></span>
+        </div>
     </nav>
 
     <main>
@@ -198,21 +261,30 @@
 
         <section id="productos" class="container">
             <h2>Nuestros Productos</h2>
+            <div class="department-menu">
+                <select onchange="filterProducts(this.value)">
+                    <option value="">Selecciona un departamento</option>
+                    <option value="salud">Salud</option>
+                    <option value="bebes">Bebés</option>
+                    <option value="vitaminas">Vitaminas y Suplementos</option>
+                    <option value="departamentos">Departamentos</option>
+                </select>
+            </div>
             <div class="products-grid">
-                <div class="product-card">🩺 Medicamentos</div>
-                <div class="product-card">🛁 Cuidado Personal</div>
-                <div class="product-card">👶 Artículos para Bebés</div>
-                <div class="product-card">💰 Promociones</div>
+                <div class="product-card" data-category="salud">🩺 Medicamentos - $100</div>
+                <div class="product-card" data-category="bebes">👶 Artículos para Bebés - $50</div>
+                <div class="product-card" data-category="vitaminas">💊 Vitaminas - $30</div>
+                <div class="product-card" data-category="departamentos">🛁 Cuidado Personal - $80</div>
             </div>
         </section>
 
         <section id="destacados" class="container">
             <h2>Productos Destacados</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" data-category="salud">
                     <p>💊 Medicamento A<br><strong>$100</strong></p>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-category="departamentos">
                     <p>🧴 Crema Corporal<br><strong>$80</strong></p>
                 </div>
             </div>
@@ -236,18 +308,74 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Farmacia Isabel. Todos los derechos reservados.</p>
+        <p>© 2025 Farmacia Isabel. Todos los derechos reservados.</p>
     </footer>
 
+    <div id="cart-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1002;">
+        <h3>Carrito de Compras</h3>
+        <ul id="cart-items"></ul>
+        <button onclick="closeCart()" style="margin-top: 10px; padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 5px;">Cerrar</button>
+    </div>
+
     <script>
+        let cart = [];
+
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         }
 
-        // Load saved theme preference
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'none' ? 'block' : 'none';
+            updateCartDisplay();
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+
+        function addToCart(product) {
+            cart.push(product);
+            updateCartCount();
+            updateCartDisplay();
+        }
+
+        function updateCartCount() {
+            const count = document.querySelector('.cart-count');
+            count.textContent = cart.length;
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                cartItems.appendChild(li);
+            });
+        }
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const product = card.textContent.trim();
+                addToCart(product);
+            });
+        });
+
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                if (category === '' || product.getAttribute('data-category') === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
