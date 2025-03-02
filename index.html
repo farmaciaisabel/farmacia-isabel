@@ -24,9 +24,9 @@
         header {
             padding: 20px;
             text-align: center;
-            background: linear-gradient(135deg, #48c9b0, #3498db);
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
             color: white;
-            border-bottom: 4px solid #82e0aa;
+            border-bottom: 4px solid #ffb6b6;
         }
 
         .logo img {
@@ -51,7 +51,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 2px solid #4ecdc4;
         }
 
         .nav-links {
@@ -61,28 +61,28 @@
 
         nav a {
             text-decoration: none;
-            color: #3498db;
+            color: #4ecdc4;
             font-weight: 600;
             transition: color 0.3s, transform 0.2s;
             font-size: 1.1rem;
         }
 
         nav a:hover {
-            color: #48c9b0;
+            color: #ff6b6b;
             transform: translateY(-2px);
         }
 
         .hamburger {
             display: none;
             font-size: 24px;
-            color: #48c9b0;
+            color: #ff6b6b;
             cursor: pointer;
             padding: 5px;
             transition: color 0.3s, transform 0.2s;
         }
 
         .hamburger:hover {
-            color: #3498db;
+            color: #4ecdc4;
             transform: scale(1.1);
         }
 
@@ -94,7 +94,7 @@
 
         .search-bar {
             padding: 10px;
-            border: 2px solid #3498db;
+            border: 2px solid #4ecdc4;
             border-radius: 20px;
             width: 220px;
             font-size: 1rem;
@@ -105,20 +105,20 @@
 
         .search-bar:focus {
             outline: none;
-            border-color: #48c9b0;
-            box-shadow: 0 0 8px rgba(72, 201, 176, 0.3);
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
         }
 
         .cart-icon {
             font-size: 28px;
-            color: #48c9b0;
+            color: #ff6b6b;
             cursor: pointer;
             position: relative;
             transition: color 0.3s, transform 0.2s;
         }
 
         .cart-icon:hover {
-            color: #3498db;
+            color: #4ecdc4;
             transform: scale(1.1);
         }
 
@@ -126,7 +126,7 @@
             position: absolute;
             top: -5px;
             right: -5px;
-            background: #48c9b0;
+            background: #ff6b6b;
             color: white;
             border-radius: 50%;
             width: 18px;
@@ -159,7 +159,7 @@
         }
 
         .side-menu a {
-            color: #3498db;
+            color: #4ecdc4;
             text-decoration: none;
             font-size: 1.1rem;
             padding: 10px 0;
@@ -167,7 +167,40 @@
         }
 
         .side-menu a:hover {
-            color: #48c9b0;
+            color: #ff6b6b;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #4ecdc4;
+            cursor: pointer;
+        }
+
+        .close-menu:hover {
+            color: #ff6b6b;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
         }
 
         .department-menu {
@@ -176,7 +209,7 @@
 
         .department-menu select {
             padding: 12px;
-            border: 2px solid #3498db;
+            border: 2px solid #4ecdc4;
             border-radius: 20px;
             font-size: 1rem;
             width: 100%;
@@ -189,8 +222,8 @@
 
         .department-menu select:focus {
             outline: none;
-            border-color: #48c9b0;
-            box-shadow: 0 0 8px rgba(72, 201, 176, 0.3);
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
         }
 
         .container {
@@ -210,7 +243,7 @@
         }
 
         h2 {
-            color: #3498db;
+            color: #4ecdc4;
             margin-bottom: 20px;
             font-size: 2.2rem;
             font-weight: 700;
@@ -220,22 +253,22 @@
         .button {
             display: inline-block;
             padding: 12px 25px;
-            background: #48c9b0;
+            background: #ff6b6b;
             color: white;
             text-decoration: none;
             border-radius: 20px;
             transition: all 0.3s;
             font-weight: 600;
             font-size: 1.1rem;
-            border: 2px solid #48c9b0;
-            box-shadow: 0 4px 10px rgba(72, 201, 176, 0.2);
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
         }
 
         .button:hover {
-            background: #3498db;
+            background: #e64c4c;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
-            border-color: #3498db;
+            box-shadow: 0 6px 15px rgba(230, 76, 76, 0.3);
+            border-color: #e64c4c;
         }
 
         .products-grid {
@@ -259,7 +292,7 @@
         .product-card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            border-color: #3498db;
+            border-color: #4ecdc4;
         }
 
         .hours {
@@ -293,7 +326,7 @@
         .payment-form label {
             display: block;
             margin-bottom: 8px;
-            color: #3498db;
+            color: #4ecdc4;
             font-weight: 600;
         }
 
@@ -309,8 +342,8 @@
 
         .payment-form input:focus {
             outline: none;
-            border-color: #48c9b0;
-            box-shadow: 0 0 8px rgba(72, 201, 176, 0.3);
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
         }
 
         #payment-result {
@@ -324,20 +357,20 @@
             top: 20px;
             right: 20px;
             padding: 10px 15px;
-            background: #48c9b0;
+            background: #ff6b6b;
             color: white;
             border: none;
             border-radius: 20px;
             cursor: pointer;
             z-index: 1001;
             transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(72, 201, 176, 0.2);
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
         }
 
         .theme-toggle:hover {
-            background: #3498db;
+            background: #e64c4c;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 6px 15px rgba(230, 76, 76, 0.3);
         }
 
         .dark-mode {
@@ -363,6 +396,22 @@
         .dark-mode .payment-form {
             background: #3d3d3d;
             border-color: #3d3d3d;
+        }
+
+        .dark-mode .side-menu {
+            background: rgba(45, 45, 45, 0.95);
+        }
+
+        .dark-mode .side-menu a {
+            color: #82e0aa;
+        }
+
+        .dark-mode .close-menu {
+            color: #82e0aa;
+        }
+
+        .dark-mode .close-menu:hover {
+            color: #48c9b0;
         }
 
         footer {
@@ -406,7 +455,7 @@
     </header>
 
     <nav>
-        <div class="hamburger" onclick="toggleSideMenu()">☰</div>
+        <div class="hamburger" onclick="toggleSideMenu()" aria-expanded="false" aria-controls="side-menu">☰</div>
         <div class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#productos">Productos</a>
@@ -420,13 +469,16 @@
         </div>
     </nav>
 
-    <div class="side-menu" id="side-menu">
+    <div class="side-menu" id="side-menu" role="navigation" aria-label="Menú lateral">
+        <button class="close-menu" onclick="toggleSideMenu()">✕</button>
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
         <a href="#destacados">Destacados</a>
         <a href="#ayuda">Ayuda</a>
         <a href="#contacto">Contacto</a>
     </div>
+
+    <div class="menu-overlay" onclick="toggleSideMenu()"></div>
 
     <main>
         <section id="inicio" class="container">
@@ -517,7 +569,7 @@
     <div id="cart-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1002; border: 2px solid #e6e9f0;">
         <h3>Carrito de Compras</h3>
         <ul id="cart-items" style="list-style: none; margin: 15px 0;"></ul>
-        <button onclick="closeCart()" style="padding: 10px 20px; background: #48c9b0; color: white; border: none; border-radius: 20px; cursor: pointer; transition: all 0.3s; font-weight: 600;">Cerrar</button>
+        <button onclick="closeCart()" style="padding: 10px 20px; background: #ff6b6b; color: white; border: none; border-radius: 20px; cursor: pointer; transition: all 0.3s; font-weight: 600;">Cerrar</button>
         <a href="#checkout" class="button" style="margin-top: 15px; display: block; text-align: center;">Finalizar Compra</a>
     </div>
 
@@ -628,8 +680,30 @@
 
         function toggleSideMenu() {
             const sideMenu = document.getElementById('side-menu');
-            sideMenu.classList.toggle('active');
+            const overlay = document.querySelector('.menu-overlay');
+            const hamburger = document.querySelector('.hamburger');
+            const isExpanded = sideMenu.classList.toggle('active');
+            overlay.classList.toggle('active', isExpanded);
+            hamburger.setAttribute('aria-expanded', isExpanded);
         }
+
+        // Close menu when a menu item is clicked
+        document.querySelectorAll('.side-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('side-menu').classList.remove('active');
+                document.querySelector('.menu-overlay').classList.remove('active');
+                document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu on Escape key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.getElementById('side-menu').classList.remove('active');
+                document.querySelector('.menu-overlay').classList.remove('active');
+                document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+            }
+        });
     </script>
 </body>
 </html>
