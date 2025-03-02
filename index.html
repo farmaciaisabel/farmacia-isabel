@@ -3,465 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Farmacia Isabel - Tu farmacia de confianza en La Huerta, Jalisco">
-    <title>Farmacia Isabel - La Huerta, Jalisco</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Farmacia Isabel - Ordena en línea en La Huerta, Jalisco.">
+    <title>Farmacia Isabel</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Quicksand', sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa, #e6e9f0);
-            transition: all 0.3s ease;
-            color: #333;
-        }
-
-        header {
-            padding: 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-            color: white;
-            border-bottom: 4px solid #ffb6b6;
-        }
-
-        .logo img {
-            max-width: 200px;
-            height: auto;
-            transition: transform 0.3s ease;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo img:hover {
-            transform: scale(1.05);
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #4ecdc4;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #4ecdc4;
-            font-weight: 600;
-            transition: color 0.3s, transform 0.2s;
-            font-size: 1.1rem;
-        }
-
-        nav a:hover {
-            color: #ff6b6b;
-            transform: translateY(-2px);
-        }
-
-        .hamburger {
-            display: none; /* Hidden on desktop */
-            font-size: 24px;
-            color: #ff6b6b;
-            cursor: pointer;
-            padding: 5px;
-            transition: color 0.3s, transform 0.2s;
-        }
-
-        .hamburger:hover {
-            color: #4ecdc4;
-            transform: scale(1.1);
-        }
-
-        .search-cart {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .search-bar {
-            padding: 10px;
-            border: 2px solid #4ecdc4;
-            border-radius: 20px;
-            width: 220px;
-            font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .search-bar:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
-        }
-
-        .cart-icon {
-            font-size: 28px;
-            color: #ff6b6b;
-            cursor: pointer;
-            position: relative;
-            transition: color 0.3s, transform 0.2s;
-        }
-
-        .cart-icon:hover {
-            color: #4ecdc4;
-            transform: scale(1.1);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff6b6b;
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: left 0.3s ease;
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .side-menu.active {
-            left: 0;
-        }
-
-        .side-menu a {
-            color: #4ecdc4;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 10px 0;
-            transition: color 0.3s;
-        }
-
-        .side-menu a:hover {
-            color: #ff6b6b;
-        }
-
-        .department-menu {
-            margin: 20px 0;
-        }
-
-        .department-menu select {
-            padding: 12px;
-            border: 2px solid #4ecdc4;
-            border-radius: 20px;
-            font-size: 1rem;
-            width: 100%;
-            max-width: 320px;
-            background: #fff;
-            font-family: 'Quicksand', sans-serif;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .department-menu select:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid #e6e9f0;
-        }
-
-        .container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        h2 {
-            color: #4ecdc4;
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #ff6b6b;
-            color: white;
-            text-decoration: none;
-            border-radius: 20px;
-            transition: all 0.3s;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border: 2px solid #ff6b6b;
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
-        }
-
-        .button:hover {
-            background: #e64c4c;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(230, 76, 76, 0.3);
-            border-color: #e64c4c;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 25px 0;
-        }
-
-        .product-card {
-            background: #f9f9fb;
-            padding: 20px;
-            border-radius: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            border: 2px solid #e6e9f0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .product-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            border-color: #4ecdc4;
-        }
-
-        .hours {
-            background: #f1f8ff;
-            padding: 15px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border: 2px solid #e6e9f0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .checkout-section {
-            margin: 20px 0;
-        }
-
-        .payment-form {
-            display: none;
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 25px;
-            background: #f9f9fb;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e6e9f0;
-        }
-
-        .payment-form.active {
-            display: block;
-        }
-
-        .payment-form label {
-            display: block;
-            margin-bottom: 8px;
-            color: #4ecdc4;
-            font-weight: 600;
-        }
-
-        .payment-form input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e6e9f0;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .payment-form input:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
-        }
-
-        #payment-result {
-            margin-top: 15px;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            z-index: 1001;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
-        }
-
-        .theme-toggle:hover {
-            background: #e64c4c;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(230, 76, 76, 0.3);
-        }
-
-        .dark-mode {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: #fff;
-        }
-
-        .dark-mode .container {
-            background: #2d2d2d;
-            border-color: #3d3d3d;
-        }
-
-        .dark-mode .hours {
-            background: #3d3d3d;
-            border-color: #3d3d3d;
-        }
-
-        .dark-mode .product-card {
-            background: #3d3d3d;
-            border-color: #3d3d3d;
-        }
-
-        .dark-mode .payment-form {
-            background: #3d3d3d;
-            border-color: #3d3d3d;
-        }
-
-        footer {
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            background: #f5f7fa;
-            border-top: 2px solid #e6e9f0;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            nav .search-cart {
-                width: auto;
-            }
-
-            .side-menu {
-                display: flex;
-            }
-
-            .side-menu.active {
-                left: 0;
-            }
-        }
+        body { font-family: Arial, sans-serif; background: #f5f7fa; color: #333; }
+        header { background: #ff6b6b; color: white; text-align: center; padding: 20px; }
+        nav { background: white; padding: 15px; display: flex; justify-content: space-between; }
+        .search-bar { padding: 10px; border: 2px solid #4ecdc4; border-radius: 20px; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .product-card { background: #f9f9fb; padding: 15px; border-radius: 10px; text-align: center; }
+        .button { padding: 10px 20px; background: #ff6b6b; color: white; border-radius: 20px; text-decoration: none; }
+        .whatsapp-button { position: fixed; bottom: 20px; right: 20px; background: #25D366; padding: 15px; border-radius: 50px; color: white; }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" aria-label="Cambiar tema" onclick="toggleTheme()">🌙</button>
-
     <header>
-        <div class="logo">
-            <img src="logo.jpg" alt="Logo de Farmacia Isabel">
-        </div>
+        <h1>Farmacia Isabel</h1>
     </header>
-
     <nav>
-        <div class="hamburger" onclick="toggleSideMenu()">☰</div>
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#productos">Productos</a>
-            <a href="#destacados">Destacados</a>
-            <a href="#ayuda">Ayuda</a>
-            <a href="#contacto">Contacto</a>
-        </div>
-        <div class="search-cart">
-            <input type="text" class="search-bar" placeholder="Buscar productos..." aria-label="Buscar productos">
-            <span class="cart-icon" onclick="toggleCart()">🛒<span class="cart-count">0</span></span>
-        </div>
+        <div><a href="#productos">Productos</a> | <a href="#promociones">Promociones</a> | <a href="#contacto">Contacto</a></div>
+        <input type="text" class="search-bar" placeholder="Buscar productos...">
     </nav>
-
-    <div class="side-menu" id="side-menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#productos">Productos</a>
-        <a href="#destacados">Destacados</a>
-        <a href="#ayuda">Ayuda</a>
-        <a href="#contacto">Contacto</a>
-    </div>
-
     <main>
-        <section id="inicio" class="container">
-            <h2>Bienvenidos a Farmacia Isabel</h2>
-            <p>Tu farmacia de confianza en La Huerta, Jalisco, con un toque cálido y comunitario.</p>
-            <div class="hours">
-                <p>⏰ Horario:<br>
-                Lunes a Sábado: 9:00 AM - 3:00 PM / 5:00 PM - 9:00 PM<br>
-                Domingo: 9:30 AM - 3:00 PM</p>
-            </div>
-            <a href="#productos" class="button">Explora Nuestros Productos</a>
-            <a href="#contacto" class="button">Contáctanos</a>
+        <section class="container">
+            <h2>Bienvenidos</h2>
+            <p>Ordena en línea y elige entrega a domicilio o recolección en tienda.</p>
+            <a href="#productos" class="button">Ver Productos</a>
         </section>
-
         <section id="productos" class="container">
-            <h2>Nuestros Productos</h2>
-            <div class="department-menu">
-                <select onchange="filterProducts(this.value)">
-                    <option value="">Selecciona un departamento</option>
-                    <option value="salud">Salud</option>
-                    <option value="bebes">Bebés</option>
-                    <option value="vitaminas">Vitaminas y Suplementos</option>
-                    <option value="departamentos">Cuidado Personal</option>
-                </select>
-            </div>
+            <h2>Productos</h2>
             <div class="products-grid">
-                <div class="product-card" data-category="salud">🩺 Medicamentos - $100</div>
-                <div class="product-card" data-category="bebes">👶 Artículos para Bebés - $50</div>
-                <div class="product-card" data-category="vitaminas">💊 Vitaminas - $30</div>
-                <div class="product-card" data-category="departamentos">🛁 Cuidado Personal - $80</div>
+                <div class="product-card">👶 Artículos para Bebés - $50 <br>En stock</div>
+                <div class="product-card">🩺 Antigripales - $100 <br>En stock</div>
+                <div class="product-card">💊 Analgésicos - $30 <br>En stock</div>
             </div>
         </section>
-
-        <section id="destacados" class="container">
-            <h2>Productos Destacados</h2>
-            <div class="products-grid">
-                <div class="product-card" data-category="salud">
-                    <p>💊 Medicamento A<br><
+        <section id="promociones" class="container">
+            <h2>Promociones</h2>
+            <p>2x1 en antigripales y bebidas de bebé.<br>Descuentos en cremas corporales.</p>
+        </section>
+        <section id="checkout" class="container">
+            <h2>Checkout</h2>
+            <label><input type="radio" name="delivery" value="pickup"> Recoger en tienda</label>
+            <label><input type="radio" name="delivery" value="delivery"> Entrega a domicilio</label>
+            <button class="button" onclick="alert('¡Pedido confirmado! Paga en efectivo al recibir o recoger.')">Confirmar</button>
+        </section>
+        <section id="contacto" class="container">
+            <h2>Contacto</h2>
+            <p>📍 Calle Primero de Enero, #19, La Huerta, Jalisco<br>📞 315 109 4530</p>
+        </section>
+    </main>
+    <a href="https://wa.me/523151094530" class="whatsapp-button">💬 WhatsApp</a>
+</body>
+</html>
