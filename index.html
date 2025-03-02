@@ -3,57 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Farmacia Isabel - Ordena en línea en La Huerta, Jalisco.">
-    <title>Farmacia Isabel</title>
+    <meta name="description" content="Farmacia - Servicios y Productos en Línea">
+    <title>Farmacia Ejemplo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; background: #f5f7fa; color: #333; }
-        header { background: #ff6b6b; color: white; text-align: center; padding: 20px; }
-        nav { background: white; padding: 15px; display: flex; justify-content: space-between; }
-        .search-bar { padding: 10px; border: 2px solid #4ecdc4; border-radius: 20px; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .product-card { background: #f9f9fb; padding: 15px; border-radius: 10px; text-align: center; }
-        .button { padding: 10px 20px; background: #ff6b6b; color: white; border-radius: 20px; text-decoration: none; }
-        .whatsapp-button { position: fixed; bottom: 20px; right: 20px; background: #25D366; padding: 15px; border-radius: 50px; color: white; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #d32f2f; /* Red for branding */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .cart-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .cart-icon .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #fff;
+            color: #d32f2f;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #0288d1; /* Blue for links */
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu li a:hover {
+            color: #d32f2f;
+        }
+
+        .nav-menu li a::after {
+            content: ">";
+            font-size: 14px;
+        }
+
+        .button {
+            display: block;
+            padding: 10px;
+            background-color: #0288d1;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #01579b;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 15px;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .map-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .nav-menu li {
+                padding: 8px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Farmacia Isabel</h1>
+        <h1>Farmacia Ejemplo</h1>
+        <div class="cart-icon">🛒 <span class="badge">1</span></div>
     </header>
+
     <nav>
-        <div><a href="#productos">Productos</a> | <a href="#promociones">Promociones</a> | <a href="#contacto">Contacto</a></div>
-        <input type="text" class="search-bar" placeholder="Buscar productos...">
+        <ul class="nav-menu">
+            <li><a href="#salud">Salud</a></li>
+            <li><a href="#bebes">Bebés</a></li>
+            <li><a href="#vitaminas">Vitaminas y Suplementos</a></li>
+            <li><a href="#departamentos">Departamentos</a></li>
+            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+            <li><a href="#ayuda">Ayuda</a></li>
+        </ul>
+        <a href="#login" class="button">Inicia sesión o regístrate</a>
+        <a href="#postal" class="button" style="background-color: #fff; color: #0288d1; border: 2px solid #0288d1;">¿Cuál es tu código postal?</a>
+        <a href="#facturacion" class="button" style="background-color: #fff; color: #0288d1; border: 2px solid #0288d1;">Facturación Electrónica</a>
     </nav>
-    <main>
-        <section class="container">
-            <h2>Bienvenidos</h2>
-            <p>Ordena en línea y elige entrega a domicilio o recolección en tienda.</p>
-            <a href="#productos" class="button">Ver Productos</a>
-        </section>
-        <section id="productos" class="container">
-            <h2>Productos</h2>
-            <div class="products-grid">
-                <div class="product-card">👶 Artículos para Bebés - $50 <br>En stock</div>
-                <div class="product-card">🩺 Antigripales - $100 <br>En stock</div>
-                <div class="product-card">💊 Analgésicos - $30 <br>En stock</div>
-            </div>
-        </section>
-        <section id="promociones" class="container">
-            <h2>Promociones</h2>
-            <p>2x1 en antigripales y bebidas de bebé.<br>Descuentos en cremas corporales.</p>
-        </section>
-        <section id="checkout" class="container">
-            <h2>Checkout</h2>
-            <label><input type="radio" name="delivery" value="pickup"> Recoger en tienda</label>
-            <label><input type="radio" name="delivery" value="delivery"> Entrega a domicilio</label>
-            <button class="button" onclick="alert('¡Pedido confirmado! Paga en efectivo al recibir o recoger.')">Confirmar</button>
-        </section>
-        <section id="contacto" class="container">
+
+    <div class="container">
+        <section id="contacto">
             <h2>Contacto</h2>
-            <p>📍 Calle Primero de Enero, #19, La Huerta, Jalisco<br>📞 315 109 4530</p>
-        </section>
-    </main>
-    <a href="https://wa.me/523151094530" class="whatsapp-button">💬 WhatsApp</a>
-</body>
-</html>
+            <p>📍 Dirección: Calle Ejemplo #123, Ciudad, Estado</p>
+            <p>📞 Teléfono: <a href="tel:+521234567890">+52 123 456 7890</a></p>
+            <div class="map-container">
+                <!-- Replace with your pharmacy's actual coordinates or address -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.206160059607!2d-104.63832788509724!3d19.480416286863347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84254b9b3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sCalle%20Primero%20de%20Enero%2019%2C%20La%20Huerta%2C%20Jal.!5e0!3m2!1sen!2smx!4v1630000000000!5m2!1sen!2smx" allowfullscreen="" loading="lazy" title="Ubicación de la Farmacia"></iframe>
+                <a href="https://www.google.com/maps?q=Calle+Primero+de+Enero+19,+La+
