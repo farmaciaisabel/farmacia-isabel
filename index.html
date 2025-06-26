@@ -4,111 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Farmacia Isabel - La Huerta, Jalisco</title>
+  <meta name="description" content="Farmacia Isabel - Tu farmacia de confianza en La Huerta, Jalisco">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       margin: 0;
-      background: #f4fbf8;
-      color: #2d4059;
+      background: linear-gradient(135deg, #f5f7fa, #e6e9f0);
+      color: #333;
     }
     header {
-      background: #0f8b8d;
+      background: linear-gradient(135deg, #4ecdc4, #0f8b8d);
       color: white;
       text-align: center;
-      padding: 20px 10px;
+      padding: 20px;
     }
     header img {
-      max-width: 150px;
-      margin-bottom: 10px;
+      max-width: 160px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    section {
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      margin-top: 10px;
+    }
+    .hero {
+      text-align: center;
       padding: 20px;
+    }
+    .hero img {
+      max-width: 180px;
+      margin: 20px auto;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin: 10px auto;
+      max-width: 600px;
+      color: #2d4059;
+    }
+    .section {
       max-width: 900px;
       margin: auto;
+      padding: 30px 20px;
     }
     h2 {
       color: #0f8b8d;
       border-bottom: 2px solid #ccc;
       padding-bottom: 5px;
     }
-    ul {
-      padding-left: 20px;
+    .hours, .contact {
+      background: #ffffff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-    .map-container {
-      text-align: center;
+    .contact a {
+      color: #0f8b8d;
+      font-weight: bold;
+      text-decoration: none;
     }
-    .doctora-isa {
-      max-width: 220px;
-      display: block;
-      margin: 10px auto 20px;
-    }
-    .whatsapp-button {
+    .whatsapp-float {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background-color: #25d366;
       color: white;
-      padding: 12px 18px;
-      border-radius: 50px;
-      text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       font-size: 16px;
+      z-index: 1000;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 15px;
     }
     footer {
       background: #0f8b8d;
       color: white;
       text-align: center;
-      padding: 12px;
-      margin-top: 30px;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="Logo.jpg" alt="Logo Farmacia Isabel">
-  <h1>Farmacia Isabel</h1>
-  <p>¡Bienvenid@ a tu farmacia de confianza en La Huerta, Jalisco!</p>
-</header>
+  <header>
+    <img src="logo.jpg" alt="Logo Farmacia Isabel">
+    <h1>Farmacia Isabel</h1>
+    <p>Tu farmacia de confianza en La Huerta, Jalisco</p>
+  </header>
 
-<img src="Doctora Isa .jpg" alt="Doctora Isa" class="doctora-isa">
+  <section class="hero">
+    <img src="Doctora Isa .jpg" alt="Doctora Isa">
+    <p>👩‍⚕️ <strong>¡Hola! Soy la Doctora Isa.</strong> Estoy aquí para ayudarte con tus medicamentos, vitaminas o cualquier duda que tengas. ¡Bienvenid@ a tu farmacia de confianza! 💊</p>
+  </section>
 
-<section>
-  <h2>🛍️ ¿Qué ofrecemos?</h2>
-  <ul>
-    <li>💊 Medicamentos genéricos y de patente</li>
-    <li>👶 Productos para bebé y cuidado personal</li>
-    <li>💪 Vitaminas y suplementos</li>
-    <li>🩹 Primeros auxilios, termómetros, oxímetros</li>
-    <li>🧪 Pruebas COVID y más</li>
-  </ul>
-</section>
+  <section class="section">
+    <h2>⏰ Horario de Atención</h2>
+    <div class="hours">
+      <p><strong>Lunes a Sábado:</strong> 9:00 AM – 3:00 PM / 5:00 PM – 9:00 PM<br>
+         <strong>Domingo:</strong> 9:30 AM – 3:00 PM</p>
+    </div>
+  </section>
 
-<section>
-  <h2>⏰ Horario de Atención</h2>
-  <p>Lunes a Sábado: 9:00 AM – 3:00 PM / 5:00 PM – 9:00 PM<br>
-     Domingo: 9:30 AM – 3:00 PM</p>
-</section>
+  <section class="section">
+    <h2>📞 Contáctanos</h2>
+    <div class="contact">
+      <p>📍 Calle Primero de Enero #19, La Huerta, Jalisco</p>
+      <p>📱 <a href="tel:+523151094530">315 109 4530</a></p>
+      <p>💬 <a href="https://wa.me/523151094530" target="_blank">Chatea por WhatsApp</a></p>
+      <iframe src="https://www.google.com/maps?q=Calle+Primero+de+Enero,+19,+La+Huerta,+Jalisco&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
 
-<section class="map-container">
-  <h2>📍 ¿Dónde estamos?</h2>
-  <p>Nos encuentras en La Huerta, Jalisco.</p>
-  <iframe src="https://www.google.com/maps/embed?pb=" width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
-</section>
+  <a href="https://wa.me/523151094530?text=Hola%2C%20me%20gustaría%20hacer%20una%20consulta%20con%20Farmacia%20Isabel." class="whatsapp-float" target="_blank">💬 WhatsApp</a>
 
-<section>
-  <h2>❤️ Sobre Nosotros</h2>
-  <p>Farmacia Isabel es una farmacia familiar comprometida con tu salud. Aquí te atendemos con amabilidad, buenos precios y el mejor servicio. ¡La Doctora Isa y todo el equipo te dan la bienvenida!</p>
-</section>
-
-<a href="https://wa.me/523151094530?text=Hola%20Farmacia%20Isabel%2C%20quisiera%20más%20información..." class="whatsapp-button" target="_blank">
-  💬 Escríbenos
-</a>
-
-<footer>
-  © 2025 Farmacia Isabel – Con cariño desde La Huerta, Jalisco 💚
-</footer>
+  <footer>
+    © 2025 Farmacia Isabel – Con cariño desde La Huerta, Jalisco
+  </footer>
 
 </body>
 </html>
